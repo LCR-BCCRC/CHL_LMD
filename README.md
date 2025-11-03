@@ -1,2 +1,42 @@
-# CHL_LMD
-Codes to generate results from CHL LMD project
+# Code and Data for *Multidimensional Characterization of Cellular Ecosystems in Hodgkin Lymphoma*
+
+This repository contains the analysis code and processed data necessary to reproduce the **main figures** presented in our paper:
+
+> **Multidimensional Characterization of Cellular Ecosystems in Hodgkin Lymphoma**  
+> **Authors:** *Tomohiro Aoki*, *Gerben Duns*, *Shinya Rai*, *Aixiang Jiang*, *Andrew Lytle*, *Yifan Yin*, *Makoto Kishida*, *Michael Li*, *Cecilia Lee*, *Denise Smorra*, *Laura Hilton*, *Shannon Healy*, *Stefan K. Alig*, *Mohammad Shahrokh Esfahani*, *Clementine Sarkozy*, *Stacy Hung*, *Katy Milne*, *Adele Telenius*, *Luke O’Brien*, *Jasper C.H. Wong*, *Claudia Cassidy*, *Manabu Fujisawa*, *Celia Strong*, *Talia Goodyear*, *Chantal Di Vito*, *Cassandra Luksik*, *Glenn Edin*, *Laura Gonzalez*, *Juan Patino Rangel*, *Michael Hong*, *Shaocheng Wu*, *Eric Lee*, *Ali Sakhdari*, *Katsuyoshi Takata*, *Tomoko Miyata-Takata*, *Merrill Boyle*, *Susana Ben-Neriah*, *Andrew P. Weng*, *Alexander Xu*, *Akil Merchant*, *Andrew Roth*, *Michael Crump*, *John Kuruvilla*, *Anca Prica*, *Robert Kridel*, *David Huntsman*, *Brad H. Nelson*, *Pedro Farinha*, *Ryan D. Morin*, *Ash Alizadeh*, *Kerry J. Savage*, *David W. Scott*, and *Christian Steidl*  
+> *Cancer Discovery*, [Year, in press]  
+> DOI: [To be updated upon publication]
+
+---
+
+## 📘 Overview
+
+This repository provides:
+- Code to reproduce the **main figures** in the manuscript.  
+- Processed datasets corresponding to each figure.  
+
+Raw sequencing data and imaging files are available in public repositories as described in the **Data Availability** section of the paper.
+
+---
+
+## 📂 Repository Structure
+CHL_LMD/
+│
+├── README.md # Project description and usage instructions
+│
+├── data/ # Processed or example data used for figures
+│ ├── Fig1/
+│ │
+│ ├── Fig2/
+│ └── ...
+│
+├── scripts/ # Analysis and visualization scripts
+│ ├── Fig1/
+│ │
+│ ├── Fig2/
+│ └── ...
+└── ...
+
+## 🧾 Citation
+If you use these scripts or data, please cite:
+[Full citation once available]
