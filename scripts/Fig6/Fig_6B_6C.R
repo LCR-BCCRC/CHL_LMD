@@ -149,19 +149,19 @@ mutual_infoPlot_topN_italic = function(mutual_info, titleName, Feature, topN = 5
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 library(rstudioapi)
 current_working_dir = dirname(rstudioapi::getActiveDocumentContext()$path)
-setwd(current_working_dir) # set the folder with the current R code file as the working folder
+setwd(current_working_dir)
 
 #---------------------------------------------------
 
 
 #------------------------- LMD cohort --------------------------
-classres = read.csv("../results/LMD_predictions.csv", row.names = 1) # nruns = 100 was set for HLGen
+classres = read.csv("../../data/Fig6/LMD_predictions.csv", row.names = 1) # nruns = 100 was set for HLGen
 
 ## define levels
 classres$prediction = factor(classres$prediction, levels = c("CST", "CN913", "STB", "CN2P")) # NO UNCLASS for LMD cohort
 
 ## read in data as well
-dat = read.csv("../data/example_data.csv", header = T, row.names = 1, stringsAsFactors = F)
+dat = read.csv("../../data/LMD_data.csv", header = T, row.names = 1, stringsAsFactors = F)
 
 classres = classres[rownames(dat),]
 
@@ -204,14 +204,13 @@ for (i in 1:4){
 
 combined_plot_cowplot = plot_grid(plotlist = allplots, ncol = 4, nrow = 1)
 print(combined_plot_cowplot)
-ggsave("../results/Fig5B_LMD_top5positive_mutualInfoPlots.pdf", height = 3, width = 13)
+ggsave("Fig6B_LMD_top5positive_mutualInfoPlots.pdf", height = 3, width = 13)
 
-saveRDS(impscores, "../results/LMD_top5positive_Mutual_info.rds")
 
 
 #---------------------------------------------------------------------------
 #------------------------- Alig cohort --------------------------
-classres = read.csv("../results/Alig_predictions.csv", row.names = 1) # nruns = 100 was set for HLGen
+classres = read.csv("../../data/Fig6/Alig_predictions.csv", row.names = 1) # nruns = 100 was set for HLGen
 
 #------------------------------------------------------------------------------------------------
 ## define levels, this is the most important code line in this file
@@ -219,7 +218,7 @@ classres$prediction = factor(classres$prediction, levels = c("CST", "CN913", "ST
 #-----------------------------------------------------------------------------------------------
 
 ## read in data as well
-dat = read.csv("../data/Alig_data_20250522.csv", header = T, row.names = 1, stringsAsFactors = F)
+dat = read.csv("../../data/Alig_data.csv", header = T, row.names = 1, stringsAsFactors = F)
 
 classres = classres[rownames(dat),]
 
@@ -281,8 +280,7 @@ for (i in 1:4){
 
 combined_plot_cowplot = plot_grid(plotlist = allplots, ncol = 4, nrow = 1)
 print(combined_plot_cowplot)
-ggsave("../results/Fig5C_Alig_top5positive_mutualInfoPlots.pdf", height = 3, width = 13)
-
+ggsave("Fig6C_Alig_top5positive_mutualInfoPlots.pdf", height = 3, width = 13)
 
 
 #----------------------------------------------------
