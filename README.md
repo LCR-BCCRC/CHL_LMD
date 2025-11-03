@@ -17,7 +17,9 @@ This repository contains the analysis code and processed data necessary to repro
 This repository provides:
 - Code to reproduce the **main figures** in the manuscript.  
 - Processed datasets corresponding to each figure.
-- An interactive viewer: for broader exploration of the cellular ecosystems data, see the [HLGen ShinyApp repository](https://github.com/ajiangsfu/HLGen_ShinyApp) built for this study.
+- For interactive visualization of the Hodgkin lymphoma cellular ecosystems data:
+  - Visit the **live Shiny app** hosted at [https://shiny.bcgsc.ca/HLGen/](https://shiny.bcgsc.ca/HLGen/).
+  - The app’s **source code** is available at [https://github.com/ajiangsfu/HLGen_ShinyApp](https://github.com/ajiangsfu/HLGen_ShinyApp).
 
 Raw sequencing data and imaging files are available in public repositories as described in the **Data Availability** section of the paper.
 
