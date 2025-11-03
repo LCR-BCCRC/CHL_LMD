@@ -16,7 +16,8 @@ This repository contains the analysis code and processed data necessary to repro
 
 This repository provides:
 - Code to reproduce the **main figures** in the manuscript.  
-- Processed datasets corresponding to each figure.  
+- Processed datasets corresponding to each figure.
+- An interactive viewer: for broader exploration of the cellular ecosystems data, see the [HLGen ShinyApp repository](https://github.com/ajiangsfu/HLGen_ShinyApp) built for this study.
 
 Raw sequencing data and imaging files are available in public repositories as described in the **Data Availability** section of the paper.
 
