@@ -1,4 +1,4 @@
-## R code to create figure 2.B in the Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+## R code to create figure 2.B in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
 ############## load packages ################ 
 library(tidyverse)
 library(ggplot2)
