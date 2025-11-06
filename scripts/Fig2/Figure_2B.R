@@ -13,7 +13,7 @@ colors_HLGen <- c("CST" = "#A6FFB6",
 colors_custom <- c(colors_HLGen,"OLD" = "#D3D3D3","YOUNG" = "cyan3","NEG" = "#D3D3D3","POS" = "#458B00")
 
 ############## input data ################ 
-input_Figure_2B <- read_tsv("../data/input_Figure_2B_EBV_HLGen.tsv")
+input_Figure_2B <- read_tsv("../../data/input_Figure_2B_EBV_HLGen.tsv")
 #############
 df_sankey <- input_Figure_2B
 df_sankey_long <- df_sankey %>% 
