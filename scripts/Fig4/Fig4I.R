@@ -1,13 +1,13 @@
-## R code to create figure 4I in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+## R code to create figure 4K in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
 ############## load packages ################ 
 library(readr)
 library(dplyr)
 library(ggplot2)
 library(cowplot)
 ############## input data ################ 
-input_Figure_4I <- read_tsv("../../data/Fig4/Fig4I_cHL_tumors_TARC_CSF2RB_MUT.tsv")
+input_Figure_4K <- read_csv("../../data/Fig4/Fig4K_CSF2RB_mut_TARC.csv")
 ##########################
-input_Figure_4I %>%
+input_Figure_4K %>%
   ggplot(aes(x = CCL17_percentage_HL_cohort, fill = CSF2RB_MUT)) +
   geom_bar(aes(y = after_stat(prop), group = CSF2RB_MUT), position = "dodge") +
   scale_y_continuous(labels = scales::percent_format()) +
