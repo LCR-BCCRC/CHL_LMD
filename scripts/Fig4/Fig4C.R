@@ -1,4 +1,4 @@
-## R code to create figure 3C in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+## R code to create figure 4C in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
 #############################################
 ############## load packages ################
 #############################################
@@ -10,7 +10,7 @@ library(ggplot2)
 #############################################
 ############## input data ################ 
 #############################################
-input_Figure_3C <- read_tsv("../../data/Fig3/Input_Figure_3C")
+input_Figure_4C <- read_tsv("../../data/Fig3/Input_Figure_4C")
 #############################################
 ############## custom function ##################
 #############################################
@@ -85,17 +85,17 @@ ggsave(name_PDF, width = 12, height = 4)
 ############## Change order input data ##################
 #############################################
 # order by median variant allele frequency (VAF)
-order_plot <- Input_Figure_3C %>%
+order_plot <- Input_Figure_4C %>%
   arrange(desc(median_VAF), res_id)
 order_of_samples <- unique(order_plot$res_id)
-Input_Figure_3C$res_id <- factor(Input_Figure_3C$res_id,levels = order_of_samples)
+Input_Figure_4C$res_id <- factor(Input_Figure_4C$res_id,levels = order_of_samples)
 #############################################
 ############### create and save plot #################
 #############################################
-create_VAF_plot_CSF2RB(Input_Figure_3C,
+create_VAF_plot_CSF2RB(Input_Figure_34,
                                directory_PDF = "",
                               legend =  TRUE,
-                               name_PDF = "Figure_3C_VAF_distributions_CSF2RB.pdf",
+                               name_PDF = "Figure_4C_VAF_distributions_CSF2RB.pdf",
                               fontsize_title_x = 10,
                                fontsize_x_axis = 8,
                                fontsize_y_axis = 8) 
