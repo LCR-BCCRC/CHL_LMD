@@ -9,13 +9,13 @@ library(cowplot)
 library(ComplexHeatmap)
 library(circlize)
 ################################################
-############## define colors ###############
-################################################
 source("get_gambl_colours.R")
 source("create_onco_matrix.R")
 source("prettyOncoplot.R")
-
-# Colours
+################################################
+################################################
+############## define custom colors ###############
+################################################
 colors_MHC <- c(
     "POS" = "blue4",
     "NEG" = "lightgrey"
