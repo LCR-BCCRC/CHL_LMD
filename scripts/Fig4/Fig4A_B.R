@@ -1,4 +1,4 @@
-## R code to create figure 4.A in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+## R code to create figures 4.A and 4.B in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
 ################################################
 ############## load packages ################ 
 ################################################
@@ -79,3 +79,30 @@ ggplot(
     theme(axis.text.y = element_text(face = "italic"))
 
 ggsave("Figure_4A_mutation_types.pdf", width = 6, height = 6)
+
+lmd_maf$HGVSp_Short <- lmd_maf$Protein_Change
+source("pretty_lollipop_plot.R")
+pretty_lollipop_plot(
+    maf = lmd_maf,
+    gene = "CSF2RB"
+) +
+    cowplot::theme_cowplot() +
+    theme(
+        legend.position = "bottom"
+    ) +
+    scale_color_manual(
+        values = get_gambl_colours("mutation"),
+        name = "Variant Classification",
+        labels = c(
+            "Frame Shift In/Del",
+            "Missense Mutation",
+            "Nonsense Mutation"
+        )
+    ) +
+    ggtitle("CSF2RB") +
+    scale_size(guide = "none") +
+    scale_fill_manual(values = c("#5c7ace", "#3baac1")) +
+    theme(plot.title = element_text(face = c("bold.italic")))
+
+
+ggsave("Figure_4B_CSF2RB_lollipop.pdf", width = 10, height = 4)
