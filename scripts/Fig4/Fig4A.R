@@ -1,3 +1,22 @@
+## R code to create figure 4.A in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+################################################
+############## load packages ################ 
+################################################
+library(GAMBLR)
+library(tidyverse)
+library(readr)
+library(cowplot)
+library(ComplexHeatmap)
+library(circlize)
+################################################
+source("get_gambl_colours.R")
+source("create_onco_matrix.R")
+source("prettyOncoplot.R")
+################################################
+############## Input files ###############
+################################################
+lmd_maf <- read_tsv("../../data/Fig2/Input_Figure_2A.maf")
+
 # Tally of mutation types per gene
 mut_gt_5 <- lmd_maf %>%
     distinct(Hugo_Symbol, Tumor_Sample_Barcode) %>%
@@ -59,4 +78,4 @@ ggplot(
     cowplot::theme_cowplot() +
     theme(axis.text.y = element_text(face = "italic"))
 
-ggsave("LMD_mutation_types.pdf", width = 6, height = 6)
+ggsave("Figure_4A_mutation_types.pdf", width = 6, height = 6)
