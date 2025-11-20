@@ -62,16 +62,62 @@ hlgen_cols <- c(
 ################################################
 ############## Input files ###############
 ################################################
-#########################################################
-############ Input data ############
-#########################################################
-
-
 # Load LMD HLGen calls and mutations
 lmd_hlgen <- read_tsv("../../data/Fig1/Input_Figure_1B.tsv") %>%
     rename(cluster = HLGen) %>%
     left_join(hlgen_key) %>%
     mutate(HLGen = factor(HLGen, levels = names(hlgen_cols)[1:4]))
+
+################################################
+############## Create and save Oncoprint ###############
+################################################
+# Map cluster numbers to names
+hlgen_key <- data.frame(
+    cluster = c(1, 2, 3, 4),
+    HLGen = names(hlgen_cols)[1:4]
+)
+
+# Map genes to clusters
+hlgen_genes <- list(
+    CST = c(
+        "TNFAIP3",
+        "BCL7A",
+        "CSF2RB",
+        "GNA13",
+        "ITPKB",
+        "MFHAS1",
+        "PTPN1",
+        "HIST1H1C"
+    ),
+    CN913 = c(
+        "9p24_1_AMP",
+        "13q_arm_DEL",
+        "6q23_3_DEL",
+        "1p36_32_DEL",
+        "KMT2D",
+        "TP53",
+        "8q24_21_AMP",
+        "KMT2A"
+    ),
+    STB = c(
+        "B2M",
+        "STAT6",
+        "SOCS1",
+        "XPO1",
+        "EEF1A1",
+        "HIST1H1E",
+        "IKBKB"
+    ),
+    CN2P = c(
+        "2p15_AMP",
+        "12q13_3_AMP",
+        "NFKBIA",
+        "IL4R",
+        "HIST1H4J",
+        "EGR1",
+        "FAS"
+    )
+)
 
 # Convert mutation status to matrix
 hlgen_mat <- lmd_hlgen %>%
@@ -206,6 +252,6 @@ op <- oncoPrint(hlgen_mat,
     show_pct = FALSE
 )
 
-pdf("LMD_HLGen_oncoprint.pdf", height = 9, width = 12)
+pdf("Figure_1B_LMD_HLGen_oncoprint.pdf", height = 9, width = 12)
 draw(op, padding = unit(c(2, 2, 2, 10), "mm"), annotation_legend_side = "bottom")
 dev.off()
