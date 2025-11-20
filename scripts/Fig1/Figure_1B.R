@@ -1,3 +1,23 @@
+## R code to create figure 1B in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+######################################################### 
+############ load packages ############
+######################################################### 
+library(readr)
+library(dplyr)
+library(magrittr)
+library(stats)
+library(ggplot2)
+library(cowplot)
+#########################################################
+############ Input data ############
+#########################################################
+
+
+
+source("get_gambl_colours.R")
+source("create_onco_matrix.R")
+source("prettyOncoplot.R")
+
 # Load LMD HLGen calls and mutations
 lmd_hlgen <- read_tsv("../../data/Fig1/Input_Figure_1B.tsv") %>%
     rename(cluster = HLGen) %>%
