@@ -1,7 +1,22 @@
+## R code to create figure 1E in Aoki et al, Multidimensional characterization of cellular ecosystems in Hodgkin lymphoma
+######################################################### 
+############ load packages ############
+######################################################### 
+library(readr)
+library(dplyr)
+library(magrittr)
+library(stats)
+library(ggplot2)
+library(cowplot)
+#########################################################
+############ Input data ############
+#########################################################
+input_Figure_1D <- read_tsv("../../data/Fig1/Input_Figure_1D.tsv")
+Categorical_variables_OI = c("Thymic involvement")
 #########################################################
 ############## Custom functions ##############
 ##########################################################
-create_enrichment_plot (input = For_Forest,
+create_enrichment_plots(input = input_Figure_1D,
                         SAMPLE = "res_id",
                         Categorical_variables_OI = Categorical_variables_OI,
                         directory_save = ".",
