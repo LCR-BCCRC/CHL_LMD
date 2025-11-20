@@ -8,15 +8,64 @@ library(magrittr)
 library(stats)
 library(ggplot2)
 library(cowplot)
+################################################
+source("get_gambl_colours.R")
+source("create_onco_matrix.R")
+source("prettyOncoplot.R")
+################################################
+############## define custom colors ###############
+################################################
+# Colours
+colors_MHC <- c(
+    "POS" = "blue4",
+    "NEG" = "lightgrey"
+)
+
+colors_mediastinal <- c(
+    "POS" = "firebrick2",
+    "NEG" = "lightgrey",
+    "NA" = "white"
+)
+colors_EBV <- c(
+    "POS" = "chartreuse4",
+    "NEG" = "lightgrey",
+    "NA" = "white"
+)
+
+colors_AGE <- c(
+    "<45yo" = "lightgrey",
+    ">=45yo" = "cyan3"
+)
+colors_DIAG <- c(
+    "NS" = "steelblue4",
+    "MC" = "#1C871C",
+    "Other" = "lightgrey"
+)
+
+colors_maf5 <- c(
+    "Yes" = "firebrick2",
+    "No" = "lightgrey"
+)
+
+colors_LDA <- c(
+    "H1" = "red",
+    "H2" = "steelblue"
+)
+
+hlgen_cols <- c(
+    CST = "#A6FFB6",
+    CN913 = "#33A1F6",
+    STB = "#D16303",
+    CN2P = "#9370DB",
+    Unclassified = "#D3D3D3"
+)
+################################################
+############## Input files ###############
+################################################
 #########################################################
 ############ Input data ############
 #########################################################
 
-
-
-source("get_gambl_colours.R")
-source("create_onco_matrix.R")
-source("prettyOncoplot.R")
 
 # Load LMD HLGen calls and mutations
 lmd_hlgen <- read_tsv("../../data/Fig1/Input_Figure_1B.tsv") %>%
