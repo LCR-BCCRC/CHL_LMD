@@ -11,7 +11,7 @@ library(cowplot)
 #########################################################
 ############ Input data ############
 #########################################################
-input_Figure_1E <- read_tsv("../../data/Fig1/Input_Figure_1F.tsv")
+input_Figure_1E <- read_tsv("../../data/Fig1/Input_Figure_1E.tsv")
 colors_custom = c("#FF0000","#838B8B")
 #########################################################
 ############ Statistics ############
