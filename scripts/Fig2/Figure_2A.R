@@ -4,6 +4,7 @@
 ################################################
 library(GAMBLR)
 library(tidyverse)
+library(readr)
 library(cowplot)
 library(ComplexHeatmap)
 library(circlize)
@@ -61,18 +62,20 @@ hlgen_cols <- c(
 ################################################
 ############## Input files ###############
 ################################################
-lmd_maf <- read_tsv("../../data/Fig2/Input_Figure_2A")
+lmd_maf <- read_tsv("../../data/Fig2/Input_Figure_2A.maf")
+lmd_clin <- read_tsv("../../data/Fig2/Input_Figure_2A_clinical.tsv")
 
-
-# Oncoplot
+################################################
+############## Create and save Oncoplot ###############
+################################################
 
 # Italicize gene names for prettyOncoplot
 ht_opt(heatmap_row_names_gp = gpar(fontface = "italic"))
 
-lmd_maf <- read_tsv("cHL_LMD_Targeted_WES_cons.patient_id.maf") %>%
+lmd_maf <- lmd_maf %>%
     mutate(Variant_Classification = str_replace(Variant_Classification, "Start_Codon_Del", "Translation_Start_Site")) %>%
     filter(!is.na(Variant_Classification))
-lmd_clin <- read_tsv("cHL_LMD_Targeted_WES_clin.txt") %>%
+lmd_clin <- lmd_clin %>%
     mutate(
         sample_id = Tumor_Sample_Barcode,
         Sex = SEX,
@@ -88,7 +91,7 @@ lmd_clin <- read_tsv("cHL_LMD_Targeted_WES_clin.txt") %>%
     )
 
 
-pdf("LMD_oncoplot.pdf", height = 10, width = 12)
+pdf("Fig2A_oncoplot.pdf", height = 10, width = 12)
 prettyOncoplot(
     these_samples_metadata = lmd_clin,
     maf = lmd_maf,
